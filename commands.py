@@ -1,5 +1,6 @@
 import pyttsx3
 import weather
+import refrigerator
 
 voiceEngine = pyttsx3.init()
 voiceEngine.setProperty(
@@ -13,3 +14,9 @@ def runWeatherCommand():
     voiceEngine.runAndWait()
     loc = input(">")
     weather.getWeather(loc)
+
+def runGetRecipe():
+    voiceEngine.say("What recipe would you like to hear?")
+    voiceEngine.runAndWait()
+    recipe = input(">")
+    refrigerator.printRecipe(recipe)

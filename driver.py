@@ -12,9 +12,12 @@ while True:
     voiceEngine.say("What can I help you with today?")
     voiceEngine.runAndWait()
 
-    command = input(">").strip().lower()
-    if command == "weather":
+    command = input(">").strip().lower().split(" ")
+
+    if "weather" in command:
         commands.runWeatherCommand()
-    elif command == "done":
+    elif "food" in command:
+        commands.runGetRecipe()
+    elif "done" in command:
         sys.exit()
 
