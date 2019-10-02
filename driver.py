@@ -1,6 +1,8 @@
 import commands
 import pyttsx3
 import sys
+import refrigerator
+from refrigerator import Recipe
 
 voiceEngine = pyttsx3.init()
 voiceEngine.setProperty(
@@ -17,7 +19,13 @@ while True:
     if "weather" in command:
         commands.runWeatherCommand()
     elif "food" in command:
-        commands.runGetRecipe()
+        voiceEngine.say("What would you like to do?")
+        voiceEngine.runAndWait()
+        command = input(">").strip().lower().split(" ")
+        if "add" in command:
+            commands.runAddRecipe()
+        elif "get" in command:
+            commands.runGetRecipe()
     elif "done" in command:
         sys.exit()
 
