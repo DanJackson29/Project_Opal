@@ -2,7 +2,6 @@ import commands
 import pyttsx3
 import sys
 import refrigerator
-from refrigerator import Recipe
 
 voiceEngine = pyttsx3.init()
 voiceEngine.setProperty(

@@ -1,6 +1,5 @@
 import pyttsx3
 import weather
-from refrigerator import Recipe
 import refrigerator
 
 voiceEngine = pyttsx3.init()

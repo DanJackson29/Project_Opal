@@ -12,6 +12,7 @@ def printRecipe(rec):
     listOfIngredients = rb.get(rec).ingredients
     for i in listOfIngredients:
         print(i)
+    return 0
 
 
 def addRecipe(name, ingredients):
