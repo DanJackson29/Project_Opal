@@ -28,8 +28,17 @@ def runAddRecipe():
     voiceEngine.runAndWait()
     recipeName = input(">")
 
-    voiceEngine.say("What are the ingredients of the recipe seperated by a comma")
+    # name,unit,quantity
+    voiceEngine.say(
+        "Enter Ingredient in the form name,unit,quantity. Type done when there are no more ingredeints"
+    )
     voiceEngine.runAndWait()
-    recipeIngredients = input(">").split(",")
+    ingredients = []
+    recipeIngredient = input(">").strip().lower().split(",")
 
-    refrigerator.addRecipe(recipeName, recipeIngredients)
+    while recipeIngredient[0] != "done":
+        ingredients.append(refrigerator.Ingredient(*recipeIngredient))
+        recipeIngredient = input(">").strip().lower().split(",")
+
+    refrigerator.addRecipe(recipeName, ingredients)
+
