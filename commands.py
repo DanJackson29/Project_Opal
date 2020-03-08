@@ -19,14 +19,14 @@ def runWeatherCommand():
 def runGetRecipe():
     voiceEngine.say("What recipe would you like to hear?")
     voiceEngine.runAndWait()
-    recipe = input(">")
+    recipe = input(">").strip().lower()
     refrigerator.printRecipe(recipe)
 
 
 def runAddRecipe():
     voiceEngine.say("What is the name of the recipe you would like to add?")
     voiceEngine.runAndWait()
-    recipeName = input(">")
+    recipeName = input(">").strip().lower()
 
     # name,unit,quantity
     voiceEngine.say(
@@ -42,3 +42,9 @@ def runAddRecipe():
 
     refrigerator.addRecipe(recipeName, ingredients)
 
+
+def runDeleteRecipe():
+    voiceEngine.say("Which recipe would like to delete?")
+    voiceEngine.runAndWait()
+    recipeName = input(">")
+    refrigerator.deleteRecipe(recipeName)

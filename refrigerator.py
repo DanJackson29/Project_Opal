@@ -1,4 +1,5 @@
 import pickle
+import Data.frigeData as fd
 
 
 class Recipe:
@@ -32,4 +33,26 @@ def addRecipe(name, ingredients):
 
     with open("Data/recipeBook.pkl", "wb") as f:
         pickle.dump(recipeBook, f)
+
+
+def convert(convertStr, amount):
+    return fd.CONVERSION[convertStr] * amount
+
+
+def deleteRecipe(name):
+    with open("Data/recipeBook.pkl", "rb") as f:
+        recipeBook = pickle.load(f)
+    del recipeBook[name]
+
+    with open("Data/recipeBook.pkl", "wb") as f:
+        pickle.dump(recipeBook, f)
+
+
+def writeRecipe(name, ingredients):
+    recipeBook = open("Data/recipeBook.py", "r+")
+    for line in recipeBook:
+        print(line)
+
+
+writeRecipe("test", "test")
 

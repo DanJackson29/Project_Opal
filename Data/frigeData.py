@@ -1,7 +1,4 @@
-import pickle
-from fractions import Fraction
-
-conversionRates = {
+CONVERSION = {
     "tsp_tsp": (1 / 1),
     "tbsp_tsp": (3 / 1),
     "cup_tsp": (48 / 1),
@@ -68,14 +65,3 @@ conversionRates = {
     "lb_lb": (1 / 1),
 }
 
-
-def convert(conversion, amount):
-    return conversionRates[conversion] * amount
-
-
-# print(Fraction(convert("oz_lb", 16)).limit_denominator())
-# print(Fraction(convert("tsp_tbsp", 5)).limit_denominator())
-lst = [1, 2, 3]
-print(lst)
-lst = lst + [4, 5, 6]
-print(lst)

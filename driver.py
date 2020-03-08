@@ -5,22 +5,25 @@ import speech_recognition as sr
 
 
 def findCommand(command):
-    print("inFind")
+    print(command)
     if "weather" in command:
         commands.runWeatherCommand()
 
     elif "food" in command:
-        print("inFood")
         if "add" in command:
             commands.runAddRecipe()
             return
         elif "get" in command:
             commands.runGetRecipe()
             return
+        elif ("delete" in command) or ("remove" in command):
+            commands.runDeleteRecipe()
+            return
 
         voiceEngine.say("What would you like to do?")
         voiceEngine.runAndWait()
-        command.append(input(">").strip().lower().split(" "))
+        newCommand = command + (input(">").strip().lower().split(" "))
+        findCommand(newCommand)
 
 
 voiceEngine = pyttsx3.init()
@@ -48,7 +51,6 @@ while True:
     #        print("Sorry could not recognize your voice")
     #    command = text.strip().lower().split(" ")
     command = input(">").strip().lower().split(" ")
-
     if "done" in command:
         sys.exit()
     else:
