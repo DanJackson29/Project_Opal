@@ -6,7 +6,9 @@ from Data.loc import locations as l
 # Gets data from https://www.wunderground.com/weather/us/"state abreaviation"/"city name"
 # Example: https://www.wunderground.com/weather/us/pa/butler
 
+
 def getWeather(loc):
+    print("butt")
     printData("test")
     # res = usCities[usCities["city"].str.lower()==loc.lower()]
     # if(len(res) == 1):
@@ -20,7 +22,6 @@ def getWeather(loc):
     #         printData(loc + "/"+fullInfo["state_id"])
     #     else:
     #         print("Too many options. Futher functionality must be implemented.")
-
 
     # inList = loc.split(",")
     # if len(inList) == 1:
@@ -38,30 +39,31 @@ def getWeather(loc):
     # s = s.strip()
     # printData(s + "/" + c)
 
-#Should catch an exception here saying that a specific city/state combo doesn't exist
+
+# Should catch an exception here saying that a specific city/state combo doesn't exist
 def printData(stateCity):
-  
-    # Enter your API key here 
+
+    # Enter your API key here
     api_key = "aeb8ad5fe63ed4ba0d2c3b426b8a3f0b"
-    
-    # base_url variable to store url 
+
+    # base_url variable to store url
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
-    
-    # Give city name 
-    city_name = input("Enter city name : ") 
-    
-    # complete_url variable to store 
-    # complete url address 
-    complete_url = base_url + "appid=" + api_key + "&q=" + city_name 
-    
-    # get method of requests module 
-    # return response object 
-    response = requests.get(complete_url) 
-    
-    # json method of response object  
-    # convert json format data into 
-    # python format data 
-    x = response.json() 
+
+    # Give city name
+    city_name = input("Enter city name : ")
+
+    # complete_url variable to store
+    # complete url address
+    complete_url = base_url + "appid=" + api_key + "&q=" + city_name
+
+    # get method of requests module
+    # return response object
+    response = requests.get(complete_url)
+
+    # json method of response object
+    # convert json format data into
+    # python format data
+    x = response.json()
 
     # url = "https://www.wunderground.com/weather/us/" + stateCity
     # res = requests.get(url)
