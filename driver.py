@@ -7,6 +7,7 @@ while True:
     print("What can I help you with today?")
 
     command = input(">").strip().lower().split(" ")
+    
 
     if "weather" in command:
         commands.runWeatherCommand()
