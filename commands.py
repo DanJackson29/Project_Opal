@@ -3,7 +3,7 @@ import weather
 
 
 def runWeatherCommand():
-    print("Where would you like the weather from?")
+    print("Where would you like the weather from?\nYou can enter City, (City, State), or Zip Code.")
     loc = input(">")
     weather.getWeather(loc)
 
