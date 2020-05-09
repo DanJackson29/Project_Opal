@@ -36,4 +36,4 @@ def getWeather(loc):
     temp_hi = weather_data["main"]["temp_max"]
     curr_temp = weather_data["main"]["temp"]
 
-    print("The current temperature in " + stateCity + " is " + str(curr_temp) + " with a high of " + str(temp_hi) + " and low of " + str(temp_lo) + ".")
+    print("The current temperature in " + loc + " is " + str(curr_temp) + " with a high of " + str(temp_hi) + " and low of " + str(temp_lo) + ".")
