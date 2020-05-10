@@ -3,8 +3,7 @@ import json
 import pandas
 from Data.loc import locations as l
 
-# Gets data from https://www.wunderground.com/weather/us/"state abreaviation"/"city name"
-# Example: https://www.wunderground.com/weather/us/pa/butler
+DEGREE_SIGN = u"\N{DEGREE SIGN}"
 
 
 def getWeather(loc):
@@ -14,26 +13,47 @@ def getWeather(loc):
     # base_url variable to store url
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
-    if(len(loc)==5):
+    if len(loc) == 5:
         complete_url = base_url + "appid=" + api_key + "&zip=" + loc + "&units=imperial"
     else:
         complete_url = base_url + "appid=" + api_key + "&q=" + loc + "&units=imperial"
 
-    response = requests.get(complete_url) 
-    
-    data = response.json()
-
-    # get method of requests module
-    # return response object
     response = requests.get(complete_url)
 
     # json method of response object
     # convert json format data into
     # python format data
     weather_data = response.json()
+    # for k in weather_data:
+    # print(k, weather_data[k])
 
-    temp_lo = weather_data["main"]["temp_min"]
-    temp_hi = weather_data["main"]["temp_max"]
-    curr_temp = weather_data["main"]["temp"]
+    temp_lo = int(weather_data["main"]["temp_min"])
+    temp_hi = int(weather_data["main"]["temp_max"])
+    curr_temp = int(weather_data["main"]["temp"])
+    loc_name = weather_data["name"]
+    cloud_desc = weather_data["weather"][0]["description"]
 
-    print("The current temperature in " + loc + " is " + str(curr_temp) + " with a high of " + str(temp_hi) + " and low of " + str(temp_lo) + ".")
+    if str(cloud_desc) == "cloudy":
+        cloud_desc = "cloudy skies"
+    elif str(cloud_desc) == "clear sky":
+        cloud_desc = "clear skies"
+
+    print(
+        "Currently in "
+        + str(loc_name)
+        + " it is "
+        + str(curr_temp)
+        + DEGREE_SIGN
+        + " with "
+        + str(cloud_desc)
+        + "."
+        + "\nToday's high is "
+        + str(temp_hi)
+        + DEGREE_SIGN
+        + " and the low is "
+        + str(temp_lo)
+        + DEGREE_SIGN
+    )
+
+
+getWeather("12456")
