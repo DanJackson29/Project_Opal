@@ -54,6 +54,3 @@ def getWeather(loc):
         + str(temp_lo)
         + DEGREE_SIGN
     )
-
-
-getWeather("12456")
