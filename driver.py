@@ -10,13 +10,10 @@ while True:
 
     if "weather" in command:
         commands.runWeatherCommand()
-    # elif "food" in command:
-    #     voiceEngine.say("What would you like to do?")
-    #     voiceEngine.runAndWait()
-    #     command = input(">").strip().lower().split(" ")
-    #     if "add" in command:
-    #         commands.runAddRecipe()
-    #     elif "get" in command:
-    #         commands.runGetRecipe()
+    elif "food" in command:
+        print("What can the refridgerator do?")
+        command = input(">").strip().lower().split(" ")
+        if "add" in command:
+            commands.runAddIngredient()
     elif "done" in command:
         sys.exit()
