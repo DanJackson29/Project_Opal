@@ -15,5 +15,7 @@ while True:
         command = input(">").strip().lower().split(" ")
         if "add" in command:
             commands.runAddIngredient()
+        if "ingred" in command:
+            commands.print_current_ingredients()
     elif "done" in command:
         sys.exit()

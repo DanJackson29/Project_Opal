@@ -1,0 +1,16 @@
+{
+	"ingredients": {
+		"eggs": {
+			"ingredient_type": "staple",
+			"std_unit": "count",
+			"amount": 2,
+			"minimum_amount": 1
+		},
+		"bread": {
+			"ingredient_type": "staple",
+			"std_unit": "loaf",
+			"amount": 1,
+			"minimum_amount": 0.5
+		}
+	}
+}

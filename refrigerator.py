@@ -1,17 +1,31 @@
 import json
+from ingredient import Ingredient
 
 class Refrigerator:
 
-    ingredient_list = []
-
     def __init__(self):
-        self.ingredient_list = []
+        curr_ingredients = open("my_ingredients.json")
+        curr_ingredients = json.load(curr_ingredients)["ingredients"]
+        self.ingredient_list = self.get_current_ingredients(curr_ingredients)
 
     def add_ingredient(self, ingredient):
         self.ingredient_list.append(ingredient)
-        print(self.ingredient_list)
     
+    def get_current_ingredients(self, curr_ingredients):
+        list_of_ingredients = []
+        for ingred in curr_ingredients.keys():
+            my_ingredient = Ingredient()
+            my_ingredient.name = ingred
+            my_ingredient.ingredient_type = curr_ingredients[ingred]["ingredient_type"]
+            my_ingredient.std_unit = curr_ingredients[ingred]["std_unit"]
+            my_ingredient.amount = curr_ingredients[ingred]["amount"]
+            my_ingredient.minimumAmount = curr_ingredients[ingred]["minimum_amount"]
+            list_of_ingredients.append(my_ingredient)
+        return list_of_ingredients
 
+    def print_current_ingredients(self):
+        for ingred in self.ingredient_list:
+            print(ingred)
 
 
 

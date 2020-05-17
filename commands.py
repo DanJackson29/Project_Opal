@@ -4,6 +4,8 @@ from refrigerator import Refrigerator
 from ingredient import Ingredient
 
 
+myFridge = Refrigerator()
+
 def runWeatherCommand():
     print("Where would you like the weather from?\nYou can enter City, (City, State), or Zip Code.")
     loc = input(">")
@@ -23,8 +25,10 @@ def runAddIngredient():
     print("Please enter ingredient minimum amount:")
     ingredient_to_add.minimumAmount = input(">")
 
-    myFridge = Refrigerator()
     myFridge.add_ingredient(ingredient_to_add)
+
+def print_current_ingredients():
+    myFridge.print_current_ingredients()
 
 
 # def runGetRecipe():
